@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <span>Budget</span>
+</mat-toolbar>
+
+
+<main>
+  <!--the input to comunicate with the Summary component-->
+  <app-summary [budgetSummary]="budgetSummary" [cashflowSummary]="cashflowSummary">
+  </app-summary>
+
+
+  <div class="grid">
+
+    <mat-card class="budgets-card">
+      <mat-card-header>
+        <mat-card-title>Budgets by category</mat-card-title>
+      </mat-card-header>
+
+      <mat-progress-spinner *ngIf="!budgetsLoaded" mode="indeterminate"></mat-progress-spinner>
+
+      <app-budget-progress *ngFor="let budget of budgets" [budget]="budget"></app-budget-progress>
+    </mat-card>
+
+    <mat-card class="budgets-card">
+      <mat-card-header>
+        <mat-card-title>Charts</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+
+  </div>
+
+
+
+</main>
